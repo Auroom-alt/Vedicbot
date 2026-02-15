@@ -815,6 +815,8 @@ dp = Dispatcher()
 @dp.message(Command("start"))
 async def start_cmd(message: types.Message):
     """Обработчик команды /start"""
+    if not message.from_user:
+        return
     await message.answer(
         f"Приветствую, {message.from_user.first_name}! 👋\n\n"
         "Я — проводник в мир твоей Судьбы. На основе ведической нумерологии я составлю твой "
@@ -827,6 +829,8 @@ async def start_cmd(message: types.Message):
 @dp.message(F.text.regexp(r'^\d{2}\.\d{2}\.\d{4}$'))
 async def process_date(message: types.Message):
     """Обработчик даты рождения"""
+    if not message.from_user or not message.text:
+        return
     birth_date = message.text
     user_name = message.from_user.first_name
     user_id = message.from_user.id
@@ -839,7 +843,10 @@ async def process_date(message: types.Message):
         await msg.edit_text("✍️ Генерирую персональный PDF-отчет с улучшенным дизайном...")
 
         # Генерация PDF
-        day, month, year = parse_date(birth_date)
+        parsed = parse_date(birth_date)
+        if parsed is None:
+            raise ValueError("Некорректный формат даты")
+        day, month, year = parsed
         jiwa, dharma, karma, forecast = calculate_numbers(day, month, year)
         file_path = generate_pdf(user_id, user_name, birth_date, jiwa, dharma, karma, forecast)
 
