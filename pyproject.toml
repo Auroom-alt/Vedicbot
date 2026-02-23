@@ -1,7 +1,13 @@
 [project]
-name = "python-template"
+name = "vedic-numerology-bot"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Vedic Numerology Telegram Bot"
+authors = [{ name = "Replit Agent" }]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "aiogram==3.4.1",
+    "fpdf2==2.7.9",
+    "pydantic",
+    "pydantic-core",
+    "flask = ">=3.0.0"
+]
