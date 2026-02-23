@@ -2132,7 +2132,7 @@ async def handle_text(message: types.Message):
     if len(user_requests[user_id]) >= LIMIT_PER_DAY:
         await message.answer(
             "⚠️ Лимит: 5 запросов в сутки. Попробуйте завтра.\n"
-            "Для снятия ограничений: <a href=\"https://t.me/v_yanushkovskiy\">@v_yanushkovskiy</a>",
+            "Для снятия ограничений: @v_yanushkovskiy (https://t.me/v_yanushkovskiy)",
             reply_markup=main_kb()
         )
         return
@@ -2167,7 +2167,7 @@ async def handle_text(message: types.Message):
 
         desc = get_compatibility_text(j1, j2)
         if not desc:
-            desc = "Описание этой комбинации скоро появится. Свяжитесь с <a href=\"https://t.me/v_yanushkovskiy\">@v_yanushkovskiy</a> для личной консультации."
+            desc = "Описание этой комбинации скоро появится. Свяжитесь с @v_yanushkovskiy (https://t.me/v_yanushkovskiy) для личной консультации."
 
         planet1 = PLANETS.get(j1, str(j1))
         planet2 = PLANETS.get(j2, str(j2))
@@ -2176,7 +2176,7 @@ async def handle_text(message: types.Message):
         clean_desc = desc.replace("*", "").replace("_", "")
 
         await message.answer(
-            header + desc + "\n\n💎 <a href=\"https://t.me/v_yanushkovskiy\">@v_yanushkovskiy</a>",
+            header + desc + "\n\n━━━━━━━━━━━━━━\n💎 Консультации, упайи, личный разбор: @v_yanushkovskiy (https://t.me/v_yanushkovskiy)",
             reply_markup=main_kb(),
             parse_mode="HTML"
         )
@@ -2205,7 +2205,7 @@ async def handle_text(message: types.Message):
         f"━━━━━━━━━━━━━━\n"
         f"🌠 <b>ПРОГНОЗ НА 2026 ГОД</b>\n{forecast_text}\n\n"
         f"━━━━━━━━━━━━━━\n"
-        f"💎 <a href=\"https://t.me/v_yanushkovskiy\">@v_yanushkovskiy</a>"
+        f"💎 Консультации, упайи, личный разбор: @v_yanushkovskiy (https://t.me/v_yanushkovskiy)"
     )
     # Убираем markdown из текстов базы данных
     report = report.replace("*", "").replace("_", "")
