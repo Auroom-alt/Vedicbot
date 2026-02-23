@@ -2176,7 +2176,7 @@ async def handle_text(message: types.Message):
         clean_desc = desc.replace("*", "").replace("_", "")
 
         await message.answer(
-            header + desc + "\n\n💎 <i>Личная консультация и упайи:</i> <a href=\"https://t.me/v_yanushkovskiy\">@v_yanushkovskiy</a>",
+            header + desc + "\n\n💎 <a href=\"https://t.me/v_yanushkovskiy\">@v_yanushkovskiy</a>",
             reply_markup=main_kb(),
             parse_mode="HTML"
         )
@@ -2205,7 +2205,7 @@ async def handle_text(message: types.Message):
         f"━━━━━━━━━━━━━━\n"
         f"🌠 <b>ПРОГНОЗ НА 2026 ГОД</b>\n{forecast_text}\n\n"
         f"━━━━━━━━━━━━━━\n"
-        f"💎 <i>Консультации, упайи, личный разбор:</i>\n<a href=\"https://t.me/v_yanushkovskiy\">@v_yanushkovskiy</a>"
+        f"💎 <a href=\"https://t.me/v_yanushkovskiy\">@v_yanushkovskiy</a>"
     )
     # Убираем markdown из текстов базы данных
     report = report.replace("*", "").replace("_", "")
