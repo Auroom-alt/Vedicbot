@@ -2208,7 +2208,7 @@ async def handle_text(message: types.Message):
         f"💎 Консультации, упайи, личный разбор: @v_yanushkovskiy (https://t.me/v_yanushkovskiy)"
     )
     # Убираем markdown из текстов базы данных
-    report = report.replace("*", "").replace("_", "")
+    report = report.replace("*", "").replace("", "")
 
     await message.answer(report, reply_markup=main_kb(), parse_mode="HTML")
 
